@@ -1,0 +1,21 @@
+{
+  "name": "HazzWizz - a Character Sheet",
+  "short_name": "HazzWizz",
+  "description": "Offline RPG character sheet with autosave",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2b2b2b",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

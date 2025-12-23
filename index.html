@@ -502,7 +502,14 @@
 <!-- jQuery + Bootstrap JS -->
 <script src="/main.js"></script>
 
-<script>$(function () {
+<script>
+	
+	if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./service-worker.js');
+}
+	
+	
+	$(function () {
   renderCharacterSelect();
   loadActiveCharacter();
 });

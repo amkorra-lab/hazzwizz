@@ -1,37 +1,30 @@
 <html>
    <head>
-    <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#2b2b2b">   
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-       
-       
+      <link rel="manifest" href="manifest.json">
+      <meta name="theme-color" content="#2b2b2b">
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-       <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@500&display=swap" rel="stylesheet">
       <style>
-          
-           #editOverlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 1000;
-  }
-  #editBox {
-    background: #fff;
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 8px;
-      overflow-y:scroll;
-      max-height:95%;
-  }
-          
-          
-          
-          
+         #editOverlay {
+         display: none;
+         position: fixed;
+         inset: 0;
+         background: rgba(0,0,0,0.6);
+         z-index: 1000;
+         }
+         #editBox {
+         background: #fff;
+         max-width: 1000px;
+         margin: 20px auto;
+         padding: 20px;
+         border-radius: 8px;
+         overflow-y:scroll;
+         max-height:95%;
+         }
          .i {
          font-family: "Noto Emoji", sans-serif;
          font-optical-sizing: auto;
@@ -46,17 +39,16 @@
          --bg1: #ffbbff;
          --bg2:#ffffbb;     
          }
-          
-@media print {
-  .container {
-    padding:0;
-      border:none !important;
-  }
-    .no-print{ display:none;}
-  @page {size: landscape}
-}
+         @media print {
+         .container {
+         padding:0;
+         border:none !important;
+         }
+         .no-print{ display:none;}
+         @page {size: landscape}
+         }
          .container {min-width:297mm !important; max-width:297mm !important; width:297mm; padding:6mm; font: 10pt Arial, sans-serif;max-height:210mm;min-height:210mm}
-          .body{ width:297mm;}
+         .body{ width:297mm;}
          .page {min-width:142.4mm;max-width:142.4mm; padding:0 !important}
          .left{position:relative;}
          .page.left:after{border-right:thin solid gray;height:100%;content:""; 
@@ -94,645 +86,653 @@
       </style>
    </head>
    <body  id=123>
-       <div class="mb-3 no-print">
-  		<select id="characterSelect" class="form-select"></select>
-
-		<button id="newCharBtn" class="btn btn-outline-primary btn-sm">New Character</button>
-		<button id="editBtn" class="btn btn-primary btn-sm">Edit</button>
-    </div>   
-    <div id="editOverlay">
-  	<div id="editBox">
-    	<h5>Edit Character</h5>
-      	<div class="card mt-3 tab-card">
-        	<div class="card-header tab-card-header">
-          	<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-            	<li class="nav-item">
-                	<a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">Main</a>
-            	</li>
-            	<li class="nav-item">
-                	<a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">Skills</a>
-            	</li>
-            	<li class="nav-item">
-                	<a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false">Equipment</a>
-            	</li>
-            	<li class="nav-item">
-                	<a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false">Other</a>
-            	</li>
-          	</ul>
-        	</div>
-           <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
-<div class="mb-3">
-  <label class="form-label">Portrait</label>
-  <input type="file"
-         class="form-control"
-         id="portraitUpload"
-         accept="image/*">
-</div>
-    <div class="mb-3  d-inline-block w-50">
-      <label class="form-label">Name</label>
-      <input type="text" class="form-control" data-attrib="name">
-    </div>
-
-    <div class="mb-3  d-inline-block ">
-      <label class="form-label">Level</label>
-      <input type="number" max=20 class="form-control" data-attrib="level" >
-    </div>
-
-    <div class="mb-3  d-inline-block ">
-      <label class="form-label">XP</label>
-      <input type="number" class="form-control" data-attrib="xp">
-    </div>
-      
-     
-    <div class="mb-3  d-inline-block w-25">
-      
-      <label class="form-label">Heritage</label>
-      <select class="form-select" data-attrib="heritage">
-  <option value="">Select ...</option>
-  <option value="Human">Human</option>
-  <option value="Elf">Elf</option>
-  <option value="Dwarf">Dwarf</option>
-  <option value="Halfling">Halfling</option>
-  <option value="Gnome">Gnome</option>
-  <option value="Goblin">Goblin</option>
-  <option value="Orc">Orc</option>
-  <option value="Half-Outsider">Half-Outsider</option>
-</select>  
-    </div> 
-    <div class="mb-3  d-inline-block w-25">
-      <label class="form-label">Background</label>
-      <input type="text" class="form-control" data-attrib="background">
-    </div>
-      
-    <div class="mb-3  d-inline-block w-25">
-      <label class="form-label">Lifestyle</label>
-      <select class="form-select" data-attrib="lifestyle">
-  <option value="">Select ...</option>
-  <option value="City Dweller">City Dweller</option>
-  <option value="Outlander">Outlander</option>
-  <option value="Wildling">Wildling</option>
-</select>
-    </div>  
-
-      <div class="mb-3  d-inline-block">  <label class="form-label d-inline-block" style="width:16%">Constitution
-          <input type="number" max=20  class="form-control" data-attrib="con"></label> <label class="form-label d-inline-block" style="width:16%">Strength
-          <input type="number" max=20  class="form-control" data-attrib="str"></label> <label class="form-label d-inline-block" style="width:16%">Dexterity
-          <input type="number" max=20  class="form-control" data-attrib="dex"></label> <label class="form-label d-inline-block" style="width:16%">Intelligence
-          <input type="number" max=20  class="form-control" data-attrib="int"></label> <label class="form-label d-inline-block" style="width:16%">Wisdom
-     	  <input type="number" max=20  class="form-control" data-attrib="wis"></label> <label class="form-label d-inline-block" style="width:16%">Charisma
-          <input type="number" max=20  class="form-control" data-attrib="cha"></label> </div>
-
-    <div class="mb-3  d-inline-block w-25">
-      <label class="form-label">Combat Focus</label>
-   
-      <input type="text" class="form-control" data-attrib="combatfocus">  
-    </div>
-    <div class="mb-3  d-inline-block w-25">
-      <label class="form-label">Focus Path</label>
-        
-      <input type="text" class="form-control" data-attrib="focuspath">
-           </div>
-           
-                
-    <div class="mb-3  d-inline-block ">
-      <label class="form-label">Age</label>
-      <input  class="form-control" data-attrib="age">
-    </div>
-    <div class="mb-3  d-inline-block w-25">
-      <label class="form-label">Size</label>
-      <select class="form-select" data-attrib="size">
-  <option value="">Select ...</option>
-  <option value="Small">Small</option>
-  <option value="Medium">Medium</option>
-  <option value="Large">Large</option>
-</select>
-           </div>
-                </div>
-          <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
-            <h5 class="card-title">Skills</h5>
-              
-            <p class="card-text">Some herritages will give you a bonus to Skills. Some of these are situational. Thus listed seperatly.</p>
-            <p class="card-text">You gain 2 Ranks from your background and 2 Rank in one listed Lore/Profession. </p>
-            <p class="card-text">Your chosen Lifestyle grants you 4 Ranks to distribute according to the skills your lifestyle offers you.</p>
-            <p class="card-text">Additionally, you gain Skills from your Combat Focus (Usually 2 Skills at Rank 2, 6-12 Ranks +2x INT to distribute freely).<br> <b>NO, I will not write a validation for this, you can do math. I believe in you!</b></p>
-             <!-- Make this text dynamic (add wich skills they can pick from etc.) and at least give out a total distributed--> 
-              <div class="container"> 
-            <div class="row">
-                  <div class="col-22 b r">SKILL</div>
-                  <div class="col-4 c b r">Base</div>
-                  <div class="col-4 c b r">Rank</div>
-                  <div class="col-4 c b r">Bonus</div>
-                  <div class="col-4 c b r">Mod</div>
-                  <div class="col-2"></div>
-                  <div class="col-16 b r">Initiative:</div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Acrobatics (DEX)</div>
-                  <div class="col-4 c  r"><span data-attrib="dex"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-2"></div>
-                  <div class="col-12  r">Perception</div>
-                  <div class="col-4  r"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Arcana * (INT)</div>
-                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-2"></div>
-                  <div class="col-12  r"></div>
-                  <div class="col-4  r"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Athlethic (STR)</div>
-                  <div class="col-4 c  r"><span data-attrib="str"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-2"></div>
-                  <div class="col-12  r"></div>
-                  <div class="col-4  r"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Computers ** (INT)</div>
-                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Crafting  * (INT)</div>
-                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Deception (CHA)</div>
-                  <div class="col-4 c  r"><span data-attrib="cha"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Diplomacy (CHA)</div>
-                  <div class="col-4 c  r"><span data-attrib="cha"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">First Aid * (WIS)</div>
-                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Insight (WIS)</div>
-                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Intimidation (CHA)</div>
-                  <div class="col-4 c  r"><span data-attrib="cha"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Investigation (INT)</div>
-                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Medicine **(INT)</div>
-                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Nature (WIS)</div>
-                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Occultism (WIS)</div>
-                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r b">PERCEPTION ***(WIS)</div>
-                  <div class="col-4 c b r"><span data-attrib="wis"></span></div>
-                  <div class="col-4 c b r"></div>
-                  <div class="col-4 c b r"></div>
-                  <div class="col-4 c b r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Performance (CHA)</div>
-                  <div class="col-4 c  r"><span data-attrib="cha"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Religion (WIS)</div>
-                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Slight of Hand (DEX)</div>
-                  <div class="col-4 c  r"><span data-attrib="dex"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Society (INT)</div>
-                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Stealth (DEX)</div>
-                  <div class="col-4 c  r"><span data-attrib="dex"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Survival (WIS)</div>
-                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Tech Use * (INT)</div>
-                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Vehicle Use * (DEX)</div>
-                  <div class="col-4 c  r"><span data-attrib="dex"></span></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Prof./Lore ** </div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Prof./Lore ** </div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Prof./Lore **</div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               <div class="row">
-                  <div class="col-22 r">Prof./Lore **</div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
-               </div>
-               </div>
-                       
-          </div>
-          <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
-            <h5 class="card-title">Equipment</h5>
-            <p class="card-text">Armor, Shields, Weapons</p>
-                       
-          </div>
-          <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
-            <h5 class="card-title">Other Settings?</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                   
-          </div>
-
-        </div>
+      <div class="mb-3 no-print">
+         <select id="characterSelect" class="form-select"></select>
+         <button id="newCharBtn" class="btn btn-outline-primary btn-sm">New Character</button>
+         <button id="editBtn" class="btn btn-primary btn-sm">Edit</button>
       </div>
-    <div class="d-flex gap-2">
-      <button id="closeBtn" class="btn btn-secondary ms-auto">Close</button>
-    </div>
-  </div>
-</div>
+      <div id="editOverlay">
+         <div id="editBox">
+            <h5>Edit Character</h5>
+            <div class="card mt-3 tab-card">
+               <div class="card-header tab-card-header">
+                  <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                     <li class="nav-item">
+                        <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">Main</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">Skills</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false">Equipment</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" id="four-tab" data-toggle="tab" href="#four" role="tab" aria-controls="Four" aria-selected="false">Other</a>
+                     </li>
+                  </ul>
+               </div>
+               <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+                     <div class="mb-3">
+                        <label class="form-label">Portrait</label>
+                        <input type="file"
+                           class="form-control"
+                           id="portraitUpload"
+                           accept="image/*">
+                     </div>
+                     <div class="mb-3  d-inline-block w-50">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" data-attrib="name">
+                     </div>
+                     <div class="mb-3  d-inline-block ">
+                        <label class="form-label">Level</label>
+                        <input type="number" max=20 class="form-control" data-attrib="level" >
+                     </div>
+                     <div class="mb-3  d-inline-block ">
+                        <label class="form-label">XP</label>
+                        <input type="number" class="form-control" data-attrib="xp">
+                     </div>
+                     <div class="mb-3  d-inline-block w-25">
+                        <label class="form-label">Heritage</label>
+                        <select class="form-select" data-attrib="heritage">
+                           <option value="">Select ...</option>
+                           <option value="Human">Human</option>
+                           <option value="Elf">Elf</option>
+                           <option value="Dwarf">Dwarf</option>
+                           <option value="Halfling">Halfling</option>
+                           <option value="Gnome">Gnome</option>
+                           <option value="Goblin">Goblin</option>
+                           <option value="Orc">Orc</option>
+                           <option value="Half-Outsider">Half-Outsider</option>
+                        </select>
+                     </div>
+                     <div class="mb-3  d-inline-block w-25">
+                        <label class="form-label">Background</label>
+                        <input type="text" class="form-control" data-attrib="background">
+                     </div>
+                     <div class="mb-3  d-inline-block w-25">
+                        <label class="form-label">Lifestyle</label>
+                        <select class="form-select" data-attrib="lifestyle">
+                           <option value="">Select ...</option>
+                           <option value="City Dweller">City Dweller</option>
+                           <option value="Outlander">Outlander</option>
+                           <option value="Wildling">Wildling</option>
+                        </select>
+                     </div>
+                     <div class="mb-3  d-inline-block">  <label class="form-label d-inline-block" style="width:16%">Constitution
+                        <input type="number" max=20  class="form-control" data-attrib="con"></label> <label class="form-label d-inline-block" style="width:16%">Strength
+                        <input type="number" max=20  class="form-control" data-attrib="str"></label> <label class="form-label d-inline-block" style="width:16%">Dexterity
+                        <input type="number" max=20  class="form-control" data-attrib="dex"></label> <label class="form-label d-inline-block" style="width:16%">Intelligence
+                        <input type="number" max=20  class="form-control" data-attrib="int"></label> <label class="form-label d-inline-block" style="width:16%">Wisdom
+                        <input type="number" max=20  class="form-control" data-attrib="wis"></label> <label class="form-label d-inline-block" style="width:16%">Charisma
+                        <input type="number" max=20  class="form-control" data-attrib="cha"></label> 
+                     </div>
+                     <div class="mb-3  d-inline-block w-25">
+                        <label class="form-label">Combat Focus</label>
+                        <input type="text" class="form-control" data-attrib="combatfocus">  
+                     </div>
+                     <div class="mb-3  d-inline-block w-25">
+                        <label class="form-label">Focus Path</label>
+                        <input type="text" class="form-control" data-attrib="focuspath">
+                     </div>
+                     <div class="mb-3  d-inline-block ">
+                        <label class="form-label">Age</label>
+                        <input  class="form-control" data-attrib="age">
+                     </div>
+                     <div class="mb-3  d-inline-block w-25">
+                        <label class="form-label">Size</label>
+                        <select class="form-select" data-attrib="size">
+                           <option value="">Select ...</option>
+                           <option value="Small">Small</option>
+                           <option value="Medium">Medium</option>
+                           <option value="Large">Large</option>
+                        </select>
+                     </div>
+                     <div class="mb-3  d-inline-block w-25">
+                        <label class="form-label">Three Word Description</label>                        
+                        <input  class="form-control" data-attrib="3words">
+                     </div>
+                     <div class="mb-3  d-inline-block w-25">
+                        <label class="form-label">Pronouns</label>                        
+                        <input class="form-control" data-attrib="pronouns">
+                     </div>
+                  </div>
+                  <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
+                     <h5 class="card-title">Skills</h5>
+                     <p class="card-text">Some herritages will give you a bonus to Skills. Some of these are situational. Thus listed seperatly.</p>
+                     <p class="card-text">You gain 2 Ranks from your background and 2 Rank in one listed Lore/Profession. </p>
+                     <p class="card-text">Your chosen Lifestyle grants you 4 Ranks to distribute according to the skills your lifestyle offers you.</p>
+                     <p class="card-text">Additionally, you gain Skills from your Combat Focus (Usually 2 Skills at Rank 2, 6-12 Ranks +2x INT to distribute freely).<br> <b>NO, I will not write a validation for this, you can do math. I believe in you!</b></p>
+                     <!-- Make this text dynamic (add wich skills they can pick from etc.) and at least give out a total distributed--> 
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-22 b r">SKILL</div>
+                           <div class="col-4 c b r">Base</div>
+                           <div class="col-4 c b r">Rank</div>
+                           <div class="col-4 c b r">Bonus</div>
+                           <div class="col-4 c b r">Mod</div>
+                           <div class="col-2"></div>
+                           <div class="col-16 b r">Initiative:</div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Acrobatics (DEX)</div>
+                           <div class="col-4 c  r"><span data-attrib="dex"></span></div>
+                           <div class="col-4 c  r"><input type="number" data-attrib="Rank.acrobatics"></div>
+                           <div class="col-4 c  r"><input type="number" data-attrib="Bonus.acrobatics"></div>
+                           <div class="col-4 c  r"><span data-attrib="Mod.acrobatics" data-formula="dex + Rank.acrobatics + Bonus.acrobatics"></span></div>
+                           <div class="col-2"></div>
+                           <div class="col-12  r">Perception</div>
+                           <div class="col-4  r"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Arcana * (INT)</div>
+                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-2"></div>
+                           <div class="col-12  r"></div>
+                           <div class="col-4  r"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Athlethic (STR)</div>
+                           <div class="col-4 c  r"><span data-attrib="str"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-2"></div>
+                           <div class="col-12  r"></div>
+                           <div class="col-4  r"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Computers ** (INT)</div>
+                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Crafting  * (INT)</div>
+                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Deception (CHA)</div>
+                           <div class="col-4 c  r"><span data-attrib="cha"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Diplomacy (CHA)</div>
+                           <div class="col-4 c  r"><span data-attrib="cha"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">First Aid * (WIS)</div>
+                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Insight (WIS)</div>
+                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Intimidation (CHA)</div>
+                           <div class="col-4 c  r"><span data-attrib="cha"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Investigation (INT)</div>
+                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Medicine **(INT)</div>
+                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Nature (WIS)</div>
+                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Occultism (WIS)</div>
+                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r b">PERCEPTION ***(WIS)</div>
+                           <div class="col-4 c b r"><span data-attrib="wis"></span></div>
+                           <div class="col-4 c b r"></div>
+                           <div class="col-4 c b r"></div>
+                           <div class="col-4 c b r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Performance (CHA)</div>
+                           <div class="col-4 c  r"><span data-attrib="cha"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Religion (WIS)</div>
+                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Slight of Hand (DEX)</div>
+                           <div class="col-4 c  r"><span data-attrib="dex"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Society (INT)</div>
+                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Stealth (DEX)</div>
+                           <div class="col-4 c  r"><span data-attrib="dex"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Survival (WIS)</div>
+                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Tech Use * (INT)</div>
+                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Vehicle Use * (DEX)</div>
+                           <div class="col-4 c  r"><span data-attrib="dex"></span></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Prof./Lore ** </div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Prof./Lore ** </div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Prof./Lore **</div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                           <div class="col-22 r">Prof./Lore **</div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-4 c  r"></div>
+                           <div class="col-18"></div>
+                           <div class="col-1"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
+                     <h5 class="card-title">Equipment</h5>
+                     <p class="card-text">Armor, Shields, Weapons</p>
+                  </div>
+                  <div class="tab-pane fade p-3" id="four" role="tabpanel" aria-labelledby="four-tab">
+                     <h5 class="card-title">Other Settings?</h5>
+                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="d-flex gap-2">
+               <button id="closeBtn" class="btn btn-secondary ms-auto">Close</button>
+            </div>
+         </div>
+      </div>
+      <!-- jQuery + Bootstrap JS -->
+      <script src="/main.js"></script>
+      <script>
+         if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('./service-worker.js');
+         }
+         
+         
+         $(function () {
+          renderCharacterSelect();
+          loadActiveCharacter();
+computeDerivedStats();
+         });
+            const STORAGE_KEY = "rpg-characters";
+         
+         function getStore() {
+          let store = JSON.parse(localStorage.getItem(STORAGE_KEY));
+          if (!store) {
+            store = {
+              activeId: "char-1",
+              characters: {
+                "char-1": { name: "New Hero", level: 1, class: "", isDead: false }
+              }
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+          }
+          return store;
+         }
+         
+         function saveStore(store) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+         }
+         
+         function renderCharacterSelect() {
+          const store = getStore();
+          const select = $('#characterSelect').empty();
+         
+          Object.entries(store.characters).forEach(([id, char]) => {
+            $('<option>')
+              .val(id)
+              .text(char.name || id)
+              .prop('selected', id === store.activeId)
+              .appendTo(select);
+          });
+         }
+         
+         
+         function loadActiveCharacter() {
+          const store = getStore();
+          const char = store.characters[store.activeId];
+          $('[data-attrib]').each(function () {
+            const key = $(this).data('attrib');
+            const value = char[key] ?? '';
+         
+            if (this.type === 'checkbox') {
+              $(this).prop('checked', value);
+            }
+            else if (this.tagName === 'INPUT' || this.tagName === 'SELECT') {
+              $(this).val(value);
+            }
+            else {
+              $(this).text(value === true ? 'Yes' : value);
+            }
+          });
+         const portrait = char.portrait || '';
+         $('#charPortrait').attr('src', portrait);
+         }
+         
+         
+         $(document).on('input change', '[data-attrib]', function () {
+          const store = getStore();
+          const char = store.characters[store.activeId];
+          const key = $(this).data('attrib');
+         
+          let value;
+          if (this.type === 'checkbox') {
+            value = $(this).is(':checked');
+          } else {
+            value = $(this).val();
+          }
+         
+          char[key] = value;
+          saveStore(store);
+         
+          // Update sheet live
+          $('[data-attrib="' + key + '"]').not(':input, select').text(
+            value === true ? 'Yes' : value
+          );
+         
+          renderCharacterSelect(); // updates name if renamed
+         });
+         
+         
+         $(document).on('input change', '[data-attrib]', function () {
+          const store = getStore();
+          const char = store.characters[store.activeId];
+          const key = $(this).data('attrib');
+         
+          let value;
+          if (this.type === 'checkbox') {
+            value = $(this).is(':checked');
+          } else {
+            value = $(this).val();
+          }
+         
+          char[key] = value;
+          saveStore(store);
+         
+          // Update sheet live
+          $('[data-attrib="' + key + '"]').not(':input, select').text(
+            value === true ? 'Yes' : value
+          );
+         
+ 		  computeDerivedStats();
+          renderCharacterSelect(); // updates name if renamed
+         });
+         
+         
+         $('#characterSelect').on('change', function () {
+          const store = getStore();
+          store.activeId = this.value;
+          saveStore(store);
+          loadActiveCharacter();
+         });
+         
+         
+         $('#newCharBtn').on('click', function () {
+          const store = getStore();
+          const id = 'char-' + Date.now();
+         
+          store.characters[id] = {
+            name: 'New Hero',
+            level: 1,
+            class: '',
+            isDead: false
+          };
+         
+          store.activeId = id;
+          saveStore(store);
+         
+          renderCharacterSelect();
+          loadActiveCharacter();
+         });
+         // Open editor
+          $('#editBtn').on('click', function () {
+            // Populate form fields from storage/sheet
+          //  $('#editOverlay input').each(function () {
+            //  const key = $(this).data('attrib');
+             // $(this).val(localStorage.getItem(key) || '');
+           // });
+         
+            $('#editOverlay').fadeIn(150);
+          });
+         $('#closeBtn').on('click', function () {
+            $('#editOverlay').fadeOut(150);
+          });
+         
+            
+            
+            
+            function processPortrait(file, callback) {
+          const img = new Image();
+          const reader = new FileReader();
+         
+          reader.onload = e => {
+            img.onload = () => {
+              const TARGET_W = 150;
+              const TARGET_H = 190;
+         
+              const canvas = document.createElement('canvas');
+              canvas.width = TARGET_W;
+              canvas.height = TARGET_H;
+              const ctx = canvas.getContext('2d');
+         
+              // Scale to fill (cover)
+              const scale = Math.max(
+                TARGET_W / img.width,
+                TARGET_H / img.height
+              );
+         
+              const scaledW = img.width * scale;
+              const scaledH = img.height * scale;
+         
+              const offsetX = (TARGET_W - scaledW) / 2;
+              const offsetY = (TARGET_H - scaledH) / 2;
+         
+              ctx.drawImage(
+                img,
+                offsetX,
+                offsetY,
+                scaledW,
+                scaledH
+              );
+         
+              callback(canvas.toDataURL('image/png'));
+            };
+         
+            img.src = e.target.result;
+          };
+         
+          reader.readAsDataURL(file);
+         }
+         $('#portraitUpload').on('change', function () {
+          const file = this.files[0];
+          if (!file) return;
+         
+          processPortrait(file, function (base64) {
+            const store = getStore();
+            const char = store.characters[store.activeId];
+         
+            char.portrait = base64;
+            saveStore(store);
+         
+            $('#charPortrait').attr('src', base64);
+          });
+         
+          this.value = ''; // allow re-uploading same file
+         });
 
-<!-- jQuery + Bootstrap JS -->
-<script src="/main.js"></script>
-
-<script>
-	
-	if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./service-worker.js');
-}
-	
-	
-	$(function () {
-  renderCharacterSelect();
-  loadActiveCharacter();
-});
-    const STORAGE_KEY = "rpg-characters";
-
-function getStore() {
-  let store = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  if (!store) {
-    store = {
-      activeId: "char-1",
-      characters: {
-        "char-1": { name: "New Hero", level: 1, class: "", isDead: false }
-      }
-    };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
-  }
-  return store;
-}
-
-function saveStore(store) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
-}
-
-function renderCharacterSelect() {
-  const store = getStore();
-  const select = $('#characterSelect').empty();
-
-  Object.entries(store.characters).forEach(([id, char]) => {
-    $('<option>')
-      .val(id)
-      .text(char.name || id)
-      .prop('selected', id === store.activeId)
-      .appendTo(select);
-  });
-}
-
-
-function loadActiveCharacter() {
+function computeDerivedStats() {
   const store = getStore();
   const char = store.characters[store.activeId];
-  $('[data-attrib]').each(function () {
-    const key = $(this).data('attrib');
-    const value = char[key] ?? '';
 
-    if (this.type === 'checkbox') {
-      $(this).prop('checked', value);
+  $('[data-formula]').each(function () {
+    const formula = $(this).data('formula');
+    let result = 0;
+
+    try {
+      // Create a scoped function with character data
+      result = Function(
+        'char',
+        `
+        with (char) {
+          return ${formula};
+        }
+        `
+      )(char);
+    } catch (e) {
+      console.warn('Formula error:', formula, e);
+      result = 0;
     }
-    else if (this.tagName === 'INPUT' || this.tagName === 'SELECT') {
-      $(this).val(value);
-    }
-    else {
-      $(this).text(value === true ? 'Yes' : value);
-    }
+
+    $(this).text(result ?? 0);
   });
-const portrait = char.portrait || '';
-$('#charPortrait').attr('src', portrait);
 }
 
-
-$(document).on('input change', '[data-attrib]', function () {
-  const store = getStore();
-  const char = store.characters[store.activeId];
-  const key = $(this).data('attrib');
-
-  let value;
-  if (this.type === 'checkbox') {
-    value = $(this).is(':checked');
-  } else {
-    value = $(this).val();
-  }
-
-  char[key] = value;
-  saveStore(store);
-
-  // Update sheet live
-  $('[data-attrib="' + key + '"]').not(':input, select').text(
-    value === true ? 'Yes' : value
-  );
-
-  renderCharacterSelect(); // updates name if renamed
-});
-
-
-$(document).on('input change', '[data-attrib]', function () {
-  const store = getStore();
-  const char = store.characters[store.activeId];
-  const key = $(this).data('attrib');
-
-  let value;
-  if (this.type === 'checkbox') {
-    value = $(this).is(':checked');
-  } else {
-    value = $(this).val();
-  }
-
-  char[key] = value;
-  saveStore(store);
-
-  // Update sheet live
-  $('[data-attrib="' + key + '"]').not(':input, select').text(
-    value === true ? 'Yes' : value
-  );
-
-  renderCharacterSelect(); // updates name if renamed
-});
-
-
-$('#characterSelect').on('change', function () {
-  const store = getStore();
-  store.activeId = this.value;
-  saveStore(store);
-  loadActiveCharacter();
-});
-
-
-$('#newCharBtn').on('click', function () {
-  const store = getStore();
-  const id = 'char-' + Date.now();
-
-  store.characters[id] = {
-    name: 'New Hero',
-    level: 1,
-    class: '',
-    isDead: false
-  };
-
-  store.activeId = id;
-  saveStore(store);
-
-  renderCharacterSelect();
-  loadActiveCharacter();
-});
-// Open editor
-  $('#editBtn').on('click', function () {
-    // Populate form fields from storage/sheet
-  //  $('#editOverlay input').each(function () {
-    //  const key = $(this).data('attrib');
-     // $(this).val(localStorage.getItem(key) || '');
-   // });
-
-    $('#editOverlay').fadeIn(150);
-  });
-$('#closeBtn').on('click', function () {
-    $('#editOverlay').fadeOut(150);
-  });
-
-    
-    
-    
-    function processPortrait(file, callback) {
-  const img = new Image();
-  const reader = new FileReader();
-
-  reader.onload = e => {
-    img.onload = () => {
-      const TARGET_W = 150;
-      const TARGET_H = 190;
-
-      const canvas = document.createElement('canvas');
-      canvas.width = TARGET_W;
-      canvas.height = TARGET_H;
-      const ctx = canvas.getContext('2d');
-
-      // Scale to fill (cover)
-      const scale = Math.max(
-        TARGET_W / img.width,
-        TARGET_H / img.height
-      );
-
-      const scaledW = img.width * scale;
-      const scaledH = img.height * scale;
-
-      const offsetX = (TARGET_W - scaledW) / 2;
-      const offsetY = (TARGET_H - scaledH) / 2;
-
-      ctx.drawImage(
-        img,
-        offsetX,
-        offsetY,
-        scaledW,
-        scaledH
-      );
-
-      callback(canvas.toDataURL('image/png'));
-    };
-
-    img.src = e.target.result;
-  };
-
-  reader.readAsDataURL(file);
-}
-$('#portraitUpload').on('change', function () {
-  const file = this.files[0];
-  if (!file) return;
-
-  processPortrait(file, function (base64) {
-    const store = getStore();
-    const char = store.characters[store.activeId];
-
-    char.portrait = base64;
-    saveStore(store);
-
-    $('#charPortrait').attr('src', base64);
-  });
-
-  this.value = ''; // allow re-uploading same file
-});
-
-</script>
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
+		  	
+         
+      </script>
       <div class="container">
          <div class="row">
             <div class="page col-5 left">
-              
                <div class="row">
                   <div class="col-4 c b r">CON</div>
                   <div class="col-4 c b r">STR</div>
@@ -1105,15 +1105,13 @@ $('#portraitUpload').on('change', function () {
                </div>
             </div>
             <div class="page col-5">
-
                <div class="row">
                   <div class="col-1"></div>
                   <div class="col-16 h10 r"><img id="charPortrait"
-       data-attrib="portrait"
-       src=""
-       alt=""
-       style="width:100%;height:100%;object-fit:cover">
-</div>
+                     data-attrib="portrait"
+                     src=""
+                     alt=""
+                     style="width:100%;height:100%;object-fit:cover"></div>
                   <div class="col-2"></div>
                   <div class="col-38 h10">
                      <div class="row">
@@ -1247,21 +1245,19 @@ $('#portraitUpload').on('change', function () {
                         <div class="col-16 b">Spellcasting</div>
                      </div>
                      <div class="row">
-
-                          <div class="col-4 b r c">Rank</div>
-                          <div class="col-4  r c"></div>
-                          <div class="col-4 b r c">Atrib</div>
-                          <div class="col-4  r c"></div>
+                        <div class="col-4 b r c">Rank</div>
+                        <div class="col-4  r c"></div>
+                        <div class="col-4 b r c">Atrib</div>
+                        <div class="col-4  r c"></div>
                      </div>
                      <div class="row">
-                          <div class="col-4  r b">S. DC</div>
-                          <div class="col-4  r c "></div>
-                          <div class="col-4 c r b">Atta</div>
-                          <div class="col-4  r c "></div>
+                        <div class="col-4  r b">S. DC</div>
+                        <div class="col-4  r c "></div>
+                        <div class="col-4 c r b">Atta</div>
+                        <div class="col-4  r c "></div>
                      </div>
                      <div class="row">
                         <div class="col-16 i r c"><small>⭕ARC ⭕DEI ⭕ELD ⭕PRI</small></div>
-                 
                      </div>
                      <div class="row">
                         <div class="col-6 b r ">Entropy</div>
@@ -1309,62 +1305,52 @@ $('#portraitUpload').on('change', function () {
                         <div class="col-4  r c "></div>
                      </div>
                      <div class="row">
-                        
-                  <div class="col-14  r c "></div>
-                  <div class="col-4  r c"></div>
+                        <div class="col-14  r c "></div>
+                        <div class="col-4  r c"></div>
                      </div>
                      <div class="row">
                         <div class="col-2"></div>
                      </div>
                      <div class="row">
-                        
-                          <div class="col-18 b">Armor</div>		
+                        <div class="col-18 b">Armor</div>
                      </div>
                      <div class="row">
-                        
-                  <div class="col-5 r ">None</div>
-                  <div class="col-4 r ">Simp</div>
-                  <div class="col-5 r ">Mod</div>
-                  <div class="col-4 r ">Heav</div>
+                        <div class="col-5 r ">None</div>
+                        <div class="col-4 r ">Simp</div>
+                        <div class="col-5 r ">Mod</div>
+                        <div class="col-4 r ">Heav</div>
                      </div>
                      <div class="row">
-
-                          <div class="col-5 r "></div>
-                          <div class="col-4 r "></div>
-                          <div class="col-5 r "></div>
-                          <div class="col-4 r "></div>
+                        <div class="col-5 r "></div>
+                        <div class="col-4 r "></div>
+                        <div class="col-5 r "></div>
+                        <div class="col-4 r "></div>
                      </div>
                      <div class="row">
-                        
-                          <div class="col-5 r ">Type</div>
-                          <div class="col-13 r "></div>
-                     </div>
-                      
-                     <div class="row">
-
-                          <div class="col-5 r ">Bonus</div>
-                          <div class="col-4 r "></div>
-                          <div class="col-5 r ">Dex C</div>
-                          <div class="col-4 r "></div>
+                        <div class="col-5 r ">Type</div>
+                        <div class="col-13 r "></div>
                      </div>
                      <div class="row">
-                       
-                          <div class="col-5 r ">Speed</div>
-                          <div class="col-4 r "></div>
-                          <div class="col-5 r ">Malus</div>
-                          <div class="col-4 r "></div>
+                        <div class="col-5 r ">Bonus</div>
+                        <div class="col-4 r "></div>
+                        <div class="col-5 r ">Dex C</div>
+                        <div class="col-4 r "></div>
                      </div>
                      <div class="row">
-                        
-                          <div class="col-5 r ">POW</div>
-                          <div class="col-4 r "></div>
-                          <div class="col-5 r ">Consum</div>
-                          <div class="col-4 r "></div>
+                        <div class="col-5 r ">Speed</div>
+                        <div class="col-4 r "></div>
+                        <div class="col-5 r ">Malus</div>
+                        <div class="col-4 r "></div>
+                     </div>
+                     <div class="row">
+                        <div class="col-5 r ">POW</div>
+                        <div class="col-4 r "></div>
+                        <div class="col-5 r ">Consum</div>
+                        <div class="col-4 r "></div>
                      </div>
                   </div>
                   <div class="col-2">
-                   
-                   </div>
+                  </div>
                   <div class="col-18 full">
                      <div class="row">
                         <div class="col-18 b">Luck</div>
@@ -1387,20 +1373,19 @@ $('#portraitUpload').on('change', function () {
                         <div class="col-18 b">Defense</div>
                      </div>
                      <div class="row">
-                		<div class="col-10 b r ">Body(CON)</div>
-                  		<div class="col-4 b r c"></div>
-                  		<div class="col-4 b r c"></div>
+                        <div class="col-10 b r ">Body(CON)</div>
+                        <div class="col-4 b r c"></div>
+                        <div class="col-4 b r c"></div>
                      </div>
                      <div class="row">
-                          <div class="col-10 b r ">Reflex(DEX)</div>
-                          <div class="col-4 r c"></div>
-                          <div class="col-4 r c"></div>
+                        <div class="col-10 b r ">Reflex(DEX)</div>
+                        <div class="col-4 r c"></div>
+                        <div class="col-4 r c"></div>
                      </div>
                      <div class="row">
-
-                          <div class="col-10 b r ">Mind(INT)</div>
-                          <div class="col-4 r c"></div>
-                          <div class="col-4 r c"></div>
+                        <div class="col-10 b r ">Mind(INT)</div>
+                        <div class="col-4 r c"></div>
+                        <div class="col-4 r c"></div>
                      </div>
                      <div class="row">
                         <div class="col-2"></div>
@@ -1409,40 +1394,38 @@ $('#portraitUpload').on('change', function () {
                         <div class="col-18 b">Armor Class</div>
                      </div>
                      <div class="row">
-                        
-                          <div class="col-4 r b c">AC</div>
-                          <div class="col-4 r b c">🛇</div>
-                          <div class="col-4 r c i">🔰</div>
-                          <div class="col-4 r b c">Anti I</div>
-                          <div class="col-2 r c "></div>
+                        <div class="col-4 r b c">AC</div>
+                        <div class="col-4 r b c">🛇</div>
+                        <div class="col-4 r c i">🔰</div>
+                        <div class="col-4 r b c">Anti I</div>
+                        <div class="col-2 r c "></div>
                      </div>
-                     <div class="row">                        
-                          <div class="col-4 r c "></div>
-                          <div class="col-4 r c "></div>
-                          <div class="col-4 r c "></div>
-                          <div class="col-4 r c "></div>
-                          <div class="col-2 r c "></div>
+                     <div class="row">
+                        <div class="col-4 r c "></div>
+                        <div class="col-4 r c "></div>
+                        <div class="col-4 r c "></div>
+                        <div class="col-4 r c "></div>
+                        <div class="col-2 r c "></div>
                      </div>
                      <div class="row">
                         <div class="col-2"></div>
                      </div>
                      <div class="row">
-                  <div class="col-18 b ">Speed</div>
+                        <div class="col-18 b ">Speed</div>
                      </div>
                      <div class="row">
-
-                          <div class="col-4 r c i">🫈</div>
-                          <div class="col-4 r c i">🐒</div>
-                          <div class="col-4 r c i">🐟</div>
-                          <div class="col-3 r c i">🦅</div>
-                          <div class="col-3 r c i">🪏</div>
+                        <div class="col-4 r c i">🫈</div>
+                        <div class="col-4 r c i">🐒</div>
+                        <div class="col-4 r c i">🐟</div>
+                        <div class="col-3 r c i">🦅</div>
+                        <div class="col-3 r c i">🪏</div>
                      </div>
                      <div class="row">
-                          <div class="col-4 r c "></div>
-                          <div class="col-4 r c "></div>
-                          <div class="col-4 r c "></div>
-                          <div class="col-3 r c "></div>
-                          <div class="col-3 r c "></div>
+                        <div class="col-4 r c "></div>
+                        <div class="col-4 r c "></div>
+                        <div class="col-4 r c "></div>
+                        <div class="col-3 r c "></div>
+                        <div class="col-3 r c "></div>
                      </div>
                      <div class="row">
                         <div class="col-2"></div>
@@ -1455,12 +1438,10 @@ $('#portraitUpload').on('change', function () {
             </div>
          </div>
       </div>
-       
-       
-        <div class="container">
+      <div class="container">
          <div class="row">
             <div class="page col-5 left">
-                 <div class="row">
+               <div class="row">
                   <div class="col-4 c r"></div>
                   <div class="col-4 c r"></div>
                   <div class="col-4 c r"></div>
@@ -1474,10 +1455,9 @@ $('#portraitUpload').on('change', function () {
                   <div class="col-16"></div>
                   <div class="col-1"></div>
                </div>
-        </div>
+            </div>
             <div class="page col-5">
-
-        <div class="row">
+               <div class="row">
                   <div class="col-1">c</div>
                   <div class="col-2">d</div>
                   <div class="col-2">e</div>
@@ -1508,12 +1488,8 @@ $('#portraitUpload').on('change', function () {
                   <div class="col-2">d</div>
                   <div class="col-2">e</div>
                </div>
-             </div>
             </div>
-       </div>
-       
-       
-       
-       
+         </div>
+      </div>
    </body>
 </html>

@@ -545,6 +545,13 @@ computeDerivedStats();
               $(this).text(value === true ? 'Yes' : value);
             }
           });
+			if(char.Rank === undefined){char.Rank={
+    acrobatics: 0,
+    stealth: 0};}
+			if(char.Bonus === undefined){char.Bonus={
+    acrobatics: 0,
+    stealth: 0};}
+			 
          const portrait = char.portrait || '';
          $('#charPortrait').attr('src', portrait);
          }

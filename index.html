@@ -211,8 +211,9 @@
                            <div class="col-4 c b r">Rank</div>
                            <div class="col-4 c b r">Bonus</div>
                            <div class="col-4 c b r">Mod</div>
+                           <div class="col-8 c b r">Add to List/div>
                            <div class="col-2"></div>
-                           <div class="col-16 b r">Initiative:</div>
+                           <div class="col-16 b r">Frequently Used:</div>
                            <div class="col-1"></div>
                         </div>
                         <div class="row">
@@ -220,7 +221,8 @@
                            <div class="col-4 c  r"><span data-attrib="dex"></span></div>
                            <div class="col-4 c  r"><input type="number" data-attrib="Rank.acrobatics"></div>
                            <div class="col-4 c  r"><input type="number" data-attrib="Bonus.acrobatics"></div>
-                           <div class="col-4 c  r"><span data-attrib="Mod['acrobatics']" data-formula="dex + Rank.acrobatics + Bonus.acrobatics"></span></div>
+                           <div class="col-4 c  r"><span data-attrib="Mod['acrobatics']" data-formula="dex + Rank.acrobatics"></span></div>
+                           <div class="col-4 c  r"><input type="checkbox" data-attrib="isIni.acrobatics"></div>
                            <div class="col-2"></div>
                            <div class="col-12  r">Perception</div>
                            <div class="col-4  r"></div>
@@ -774,14 +776,12 @@ function getByPath(obj, path) {
                   <div class="col-1"></div>
                </div>
                <div class="row">
+				   <div class="col-38 full"><div class="row">
                   <div class="col-22 b r">SKILL</div>
                   <div class="col-4 c b r">Base</div>
                   <div class="col-4 c b r">Rank</div>
                   <div class="col-4 c b r">Bon</div>
                   <div class="col-4 c b r">Mod</div>
-                  <div class="col-2"></div>
-                  <div class="col-16 b r">Initiative:</div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Acrobatics (DEX)</div>
@@ -789,10 +789,7 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-2"></div>
-                  <div class="col-12  r">Perception</div>
-                  <div class="col-4  r"></div>
-                  <div class="col-1"></div>
+				  
                </div>
                <div class="row">
                   <div class="col-22 r">Arcana * (INT)</div>
@@ -800,10 +797,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-2"></div>
-                  <div class="col-12  r"></div>
-                  <div class="col-4  r"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Athlethic (STR)</div>
@@ -811,10 +804,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-2"></div>
-                  <div class="col-12  r"></div>
-                  <div class="col-4  r"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Computers ** (INT)</div>
@@ -822,8 +811,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Crafting  * (INT)</div>
@@ -831,8 +818,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Deception (CHA)</div>
@@ -840,8 +825,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Diplomacy (CHA)</div>
@@ -849,8 +832,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">First Aid * (WIS)</div>
@@ -858,8 +839,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Insight (WIS)</div>
@@ -867,8 +846,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Intimidation (CHA)</div>
@@ -876,8 +853,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Investigation (INT)</div>
@@ -885,8 +860,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Medicine **(INT)</div>
@@ -894,8 +867,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Nature (WIS)</div>
@@ -903,8 +874,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Occultism (WIS)</div>
@@ -912,8 +881,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r b">PERCEPTION ***(WIS)</div>
@@ -921,8 +888,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c b r"></div>
                   <div class="col-4 c b r"></div>
                   <div class="col-4 c b r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Performance (CHA)</div>
@@ -930,8 +895,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Religion (WIS)</div>
@@ -939,8 +902,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Slight of Hand (DEX)</div>
@@ -948,8 +909,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Society (INT)</div>
@@ -957,8 +916,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Stealth (DEX)</div>
@@ -966,8 +923,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Survival (WIS)</div>
@@ -975,8 +930,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Tech Use * (INT)</div>
@@ -984,8 +937,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Vehicle Use * (DEX)</div>
@@ -993,8 +944,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Prof./Lore ** </div>
@@ -1002,8 +951,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Prof./Lore ** </div>
@@ -1011,8 +958,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Prof./Lore **</div>
@@ -1020,8 +965,6 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
                <div class="row">
                   <div class="col-22 r">Prof./Lore **</div>
@@ -1029,9 +972,29 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-                  <div class="col-18"></div>
-                  <div class="col-1"></div>
                </div>
+				   </div>
+
+				   
+				    
+                  <div class="col-2"></div>
+				   <div class="col-16 full"><div class="row">
+                  <div class="col-16 b r">Initiative:</div>
+				   
+               </div>
+               <div class="row">
+                  <div class="col-12  r">Perception</div>
+                  <div class="col-4  r"></div>
+
+				   
+               </div>
+               <div class="row">
+                  <div class="col-12  r"></div>
+                  <div class="col-4  r"></div>
+			   </div></div>  
+                  <div class="col-1"></div>
+
+					   
                <div class="row">
                   <div class="col-22"></div>
                   <div class="col-22"></div>

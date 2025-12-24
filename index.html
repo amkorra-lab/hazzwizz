@@ -563,7 +563,7 @@
             value = $(this).val();
           }
          
-          setByPath(char, key, value);
+          setByPath(char, key, normalizeValue(value));
           saveStore(store);
          
           // Update sheet live
@@ -623,8 +623,12 @@
          $('#closeBtn').on('click', function () {
             $('#editOverlay').fadeOut(150);
           });
-         
-            
+ //Save numbers as numbers        
+    function normalizeValue(val) {
+  if (val === "" || val === null) return 0;
+  if (!isNaN(val)) return Number(val);
+  return val;
+}        
             
             
     function processPortrait(file, callback) {
@@ -707,7 +711,7 @@ function computeDerivedStats() {
         'char',
         `
         with (char) {
-          return ${formula};
+          return Number(${formula});
         }
         `
       )(char);

@@ -218,9 +218,9 @@
                         <div class="row">
                            <div class="col-22 r">Acrobatics (DEX)</div>
                            <div class="col-4 c  r"><span data-attrib="dex"></span></div>
-                           <div class="col-4 c  r"><input type="number" data-attrib="Rank.acrobatics"></div>
-                           <div class="col-4 c  r"><input type="number" data-attrib="Bonus.acrobatics"></div>
-                           <div class="col-4 c  r"><span data-attrib="Mod.acrobatics" data-formula="dex + Rank.acrobatics + Bonus.acrobatics"></span></div>
+                           <div class="col-4 c  r"><input type="number" data-attrib="Rank['acrobatics']"></div>
+                           <div class="col-4 c  r"><input type="number" data-attrib="Bonus['acrobatics']"></div>
+                           <div class="col-4 c  r"><span data-attrib="Mod['acrobatics']" data-formula="dex + Rank.acrobatics + Bonus.acrobatics"></span></div>
                            <div class="col-2"></div>
                            <div class="col-12  r">Perception</div>
                            <div class="col-4  r"></div>
@@ -592,6 +592,12 @@ computeDerivedStats();
             name: 'New Hero',
             level: 1,
             class: '',
+			  con:0,
+			  str:0,
+			  dex:0,
+			  int:0,
+			  wis:0,
+			  cha:0,
 			Rank:{},
 			Bonus:{},
 			Modifyer:{},

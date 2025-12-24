@@ -492,7 +492,6 @@
          $(function () {
           renderCharacterSelect();
           loadActiveCharacter();
-		  computeDerivedStats();
          });
             const STORAGE_KEY = "rpg-characters";
          
@@ -571,7 +570,8 @@
             value === true ? 'Yes' : value
           );
          
- 		  computeDerivedStats();
+ 		 
+		computeDerivedStats(char);
           renderCharacterSelect(); // updates name if renamed
          });
          
@@ -609,6 +609,8 @@
          
           renderCharacterSelect();
           loadActiveCharacter();
+		
+		computeDerivedStats( store.characters[id]);
          });
          // Open editor
           $('#editBtn').on('click', function () {
@@ -690,37 +692,24 @@
           this.value = ''; // allow re-uploading same file
          });
 
-function computeDerivedStats() {
-  const store = getStore();
-  const char = store.characters[store.activeId];
-
-			if(char.Rank === undefined){char.Rank={
-    acrobatics: 0,
-    stealth: 0};}
-			if(char.Bonus === undefined){char.Bonus={
-    acrobatics: 0,
-    stealth: 0};}
-	
-  $('[data-formula]').each(function () {
-    const formula = $(this).data('formula');
-    let result = 0;
+function computeDerivedStats(sheetData) {
+  document.querySelectorAll("[data-formula]").forEach(el => {
+    const formula = el.dataset.formula;
 
     try {
-      // Create a scoped function with character data
-      result = Function(
-        'char',
+      const result = Function(
+        "data",
         `
-        with (char) {
+        with (data) {
           return Number(${formula});
         }
         `
-      )(char);
-    } catch (e) {
-      console.warn('Formula error:', formula, e);
-      result = 0;
-    }
+      )(sheetData);
 
-    $(this).text(result ?? 0);
+      el.textContent = Number.isFinite(result) ? result : 0;
+    } catch {
+      el.textContent = 0;
+    }
   });
 }
 

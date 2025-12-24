@@ -74,6 +74,8 @@
          .col-22 {width:55mm; max-width:55mm;height:5mm;}
          .col-18.full{height:auto}
          .col-38{ width:95mm;max-width:95mm;}
+		  
+         .col-46{ width:115mm;max-width:115mm;}
          .lb{ border-bottom:thin solid black}
          div.h10{height:50mm;}
          .col-111{width:0.2mm;background-color:darkgray !important;}
@@ -205,267 +207,231 @@
                      <p class="card-text">Additionally, you gain Skills from your Combat Focus (Usually 2 Skills at Rank 2, 6-12 Ranks +2x INT to distribute freely).<br> <b>NO, I will not write a validation for this, you can do math. I believe in you!</b></p>
                      <!-- Make this text dynamic (add wich skills they can pick from etc.) and at least give out a total distributed--> 
                      <div class="container">
-                        <div class="row">
-                           <div class="col-22 b r">SKILL</div>
-                           <div class="col-4 c b r">Base</div>
-                           <div class="col-4 c b r">Rank</div>
-                           <div class="col-4 c b r">Bonus</div>
-                           <div class="col-4 c b r">Mod</div>
-                           <div class="col-8 c b r">Add to List</div>
-                           <div class="col-2"></div>
-                           <div class="col-16 b r">Frequently Used:</div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Acrobatics (DEX)</div>
+						 
+				<div class="row">
+                       <div class="col-46 full">
+				<div class="row">
+                  <div class="col-22 b r">SKILL</div>
+                  <div class="col-4 c b r">Base</div>
+                  <div class="col-4 c b r">Rank</div>
+                  <div class="col-4 c b r">Bon</div>
+                  <div class="col-4 c b r">Mod</div>
+                  <div class="col-8 c b r">Add List</div>
+               </div>
+               <div class="row">
+					<div class="col-22 r">Acrobatics (DEX)</div>
                            <div class="col-4 c  r"><span data-attrib="dex"></span></div>
                            <div class="col-4 c  r"><input type="number" data-attrib="Rank.acrobatics"></div>
                            <div class="col-4 c  r"><input type="number" data-attrib="Bonus.acrobatics"></div>
                            <div class="col-4 c  r"><span data-attrib="Mod['acrobatics']" data-formula="dex + Rank.acrobatics"></span></div>
-                           <div class="col-4 c  r"><input type="checkbox" data-attrib="isIni.acrobatics"></div>
-                           <div class="col-2"></div>
-                           <div class="col-12  r">Perception</div>
-                           <div class="col-4  r"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Arcana * (INT)</div>
-                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-2"></div>
-                           <div class="col-12  r"></div>
-                           <div class="col-4  r"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Athlethic (STR)</div>
-                           <div class="col-4 c  r"><span data-attrib="str"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-2"></div>
-                           <div class="col-12  r"></div>
-                           <div class="col-4  r"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Computers ** (INT)</div>
-                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Crafting  * (INT)</div>
-                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Deception (CHA)</div>
-                           <div class="col-4 c  r"><span data-attrib="cha"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Diplomacy (CHA)</div>
-                           <div class="col-4 c  r"><span data-attrib="cha"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">First Aid * (WIS)</div>
-                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Insight (WIS)</div>
-                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Intimidation (CHA)</div>
-                           <div class="col-4 c  r"><span data-attrib="cha"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Investigation (INT)</div>
-                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Medicine **(INT)</div>
-                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Nature (WIS)</div>
-                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Occultism (WIS)</div>
-                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r b">PERCEPTION ***(WIS)</div>
-                           <div class="col-4 c b r"><span data-attrib="wis"></span></div>
-                           <div class="col-4 c b r"></div>
-                           <div class="col-4 c b r"></div>
-                           <div class="col-4 c b r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Performance (CHA)</div>
-                           <div class="col-4 c  r"><span data-attrib="cha"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Religion (WIS)</div>
-                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Slight of Hand (DEX)</div>
-                           <div class="col-4 c  r"><span data-attrib="dex"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Society (INT)</div>
-                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Stealth (DEX)</div>
-                           <div class="col-4 c  r"><span data-attrib="dex"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Survival (WIS)</div>
-                           <div class="col-4 c  r"><span data-attrib="wis"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Tech Use * (INT)</div>
-                           <div class="col-4 c  r"><span data-attrib="int"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Vehicle Use * (DEX)</div>
-                           <div class="col-4 c  r"><span data-attrib="dex"></span></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Prof./Lore ** </div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Prof./Lore ** </div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Prof./Lore **</div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                           <div class="col-22 r">Prof./Lore **</div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-4 c  r"></div>
-                           <div class="col-18"></div>
-                           <div class="col-1"></div>
-                        </div>
+                           <div class="col-8 c  r"><input type="checkbox" data-attrib="isIni.acrobatics"></div>
+				  
+               </div>
+               <div class="row">
+					<div class="col-22 r">Arcana * (INT)</div>
+                    <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                    <div class="col-4 c  r"><input type="number" data-attrib="Rank.arcana"></div>
+                    <div class="col-4 c  r"><input type="number" data-attrib="Bonus.arcana"></div>
+                    <div class="col-4 c  r"><span data-attrib="Mod['arcana']" data-formula="int + Rank.arcana"></span></div>
+                    <div class="col-8 c  r"><input type="checkbox" data-attrib="isIni.arcana"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Athlethic (STR)</div>
+                  <div class="col-4 c  r"><span data-attrib="str"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+					<div class="col-22 r">Computers * (INT)</div>
+                    <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                    <div class="col-4 c  r"><input type="number" data-attrib="Rank.computers"></div>
+                    <div class="col-4 c  r"><input type="number" data-attrib="Bonus.computers"></div>
+                    <div class="col-4 c  r"><span data-attrib="Mod['computers']" data-formula="int + Rank.computers"></span></div>
+                    <div class="col-8 c  r"><input type="checkbox" data-attrib="isIni.computers" value="Computers * (INT)"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Crafting  * (INT)</div>
+                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Deception (CHA)</div>
+                  <div class="col-4 c  r"><span data-attrib="cha"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Diplomacy (CHA)</div>
+                  <div class="col-4 c  r"><span data-attrib="cha"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">First Aid * (WIS)</div>
+                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Insight (WIS)</div>
+                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Intimidation (CHA)</div>
+                  <div class="col-4 c  r"><span data-attrib="cha"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Investigation (INT)</div>
+                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Medicine **(INT)</div>
+                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Nature (WIS)</div>
+                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Occultism (WIS)</div>
+                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r b">PERCEPTION ***(WIS)</div>
+                  <div class="col-4 c b r"><span data-attrib="wis"></span></div>
+                  <div class="col-4 c b r"></div>
+                  <div class="col-4 c b r"></div>
+                  <div class="col-4 c b r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Performance (CHA)</div>
+                  <div class="col-4 c  r"><span data-attrib="cha"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Religion (WIS)</div>
+                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Slight of Hand (DEX)</div>
+                  <div class="col-4 c  r"><span data-attrib="dex"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Society (INT)</div>
+                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Stealth (DEX)</div>
+                  <div class="col-4 c  r"><span data-attrib="dex"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Survival (WIS)</div>
+                  <div class="col-4 c  r"><span data-attrib="wis"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Tech Use * (INT)</div>
+                  <div class="col-4 c  r"><span data-attrib="int"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Vehicle Use * (DEX)</div>
+                  <div class="col-4 c  r"><span data-attrib="dex"></span></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Prof./Lore ** </div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Prof./Lore ** </div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Prof./Lore **</div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+               </div>
+               <div class="row">
+                  <div class="col-22 r">Prof./Lore **</div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+                  <div class="col-4 c  r"></div>
+             
+				</div>
+			</div>
+			<div class="col-2"></div>
+			<div class="col-16 full">
+				<div class="row">
+                  <div class="col-16 b r">Initiative:</div>
+				   
+               </div>
+               <div class="row">
+                  <div class="col-12  r">Perception</div>
+                  <div class="col-4  r"></div>
+
+				   
+               </div>
+               <div class="row">
+                  <div class="col-12  r"></div>
+                  <div class="col-4  r"></div>
+			   </div>
+			</div>  
+                  <div class="col-1"></div>
+			   </div>
                      </div>
                   </div>
                   <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
@@ -776,7 +742,8 @@ function getByPath(obj, path) {
                   <div class="col-1"></div>
                </div>
                <div class="row">
-				   <div class="col-38 full"><div class="row">
+			<div class="col-38 full">
+				<div class="row">
                   <div class="col-22 b r">SKILL</div>
                   <div class="col-4 c b r">Base</div>
                   <div class="col-4 c b r">Rank</div>
@@ -972,14 +939,12 @@ function getByPath(obj, path) {
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
                   <div class="col-4 c  r"></div>
-               </div>
-				   </div>
-				   </div>
-
-				   
-				    
-                  <div class="col-2"></div>
-				   <div class="col-16 full"><div class="row">
+             
+				</div>
+			</div>
+			<div class="col-2"></div>
+			<div class="col-16 full">
+				<div class="row">
                   <div class="col-16 b r">Initiative:</div>
 				   
                </div>
@@ -992,9 +957,10 @@ function getByPath(obj, path) {
                <div class="row">
                   <div class="col-12  r"></div>
                   <div class="col-4  r"></div>
-			   </div></div>  
+			   </div>
+			</div>  
                   <div class="col-1"></div>
-
+			   </div>
 					   
                <div class="row">
                   <div class="col-22"></div>

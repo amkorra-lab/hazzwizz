@@ -545,42 +545,12 @@ computeDerivedStats();
               $(this).text(value === true ? 'Yes' : value);
             }
           });
-			if(char.Rank === undefined){char.Rank={
-    acrobatics: 0,
-    stealth: 0};}
-			if(char.Bonus === undefined){char.Bonus={
-    acrobatics: 0,
-    stealth: 0};}
 			 
          const portrait = char.portrait || '';
          $('#charPortrait').attr('src', portrait);
          }
          
-         
-         $(document).on('input change', '[data-attrib]', function () {
-          const store = getStore();
-          const char = store.characters[store.activeId];
-          const key = $(this).data('attrib');
-         
-          let value;
-          if (this.type === 'checkbox') {
-            value = $(this).is(':checked');
-          } else {
-            value = $(this).val();
-          }
-         
-          char[key] = value;
-          saveStore(store);
-         
-          // Update sheet live
-          $('[data-attrib="' + key + '"]').not(':input, select').text(
-            value === true ? 'Yes' : value
-          );
-         
-          renderCharacterSelect(); // updates name if renamed
-         });
-         
-         
+                 
          $(document).on('input change', '[data-attrib]', function () {
           const store = getStore();
           const char = store.characters[store.activeId];
@@ -622,6 +592,9 @@ computeDerivedStats();
             name: 'New Hero',
             level: 1,
             class: '',
+			Rank:{},
+			Bonus:{},
+			Modifyer:{},
             isDead: false
           };
          
@@ -711,6 +684,13 @@ function computeDerivedStats() {
   const store = getStore();
   const char = store.characters[store.activeId];
 
+			if(char.Rank === undefined){char.Rank={
+    acrobatics: 0,
+    stealth: 0};}
+			if(char.Bonus === undefined){char.Bonus={
+    acrobatics: 0,
+    stealth: 0};}
+	
   $('[data-formula]').each(function () {
     const formula = $(this).data('formula');
     let result = 0;

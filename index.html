@@ -48,7 +48,9 @@
          @page {size: landscape}
          }
          .container {min-width:297mm !important; max-width:297mm !important; width:297mm; padding:6mm; font: 10pt Arial, sans-serif;max-height:210mm;min-height:210mm}
-         .body{ width:297mm;}
+         .container.form{min-height:auto; max-height:auto;}
+		  .container.form input{ width:8mm;}
+		  .body{ width:297mm;}
          .page {min-width:142.4mm;max-width:142.4mm; padding:0 !important}
          .left{position:relative;}
          .page.left:after{border-right:thin solid gray;height:100%;content:""; 
@@ -206,7 +208,7 @@
                      <p class="card-text">Your chosen Lifestyle grants you 4 Ranks to distribute according to the skills your lifestyle offers you.</p>
                      <p class="card-text">Additionally, you gain Skills from your Combat Focus (Usually 2 Skills at Rank 2, 6-12 Ranks +2x INT to distribute freely).<br> <b>NO, I will not write a validation for this, you can do math. I believe in you!</b></p>
                      <!-- Make this text dynamic (add wich skills they can pick from etc.) and at least give out a total distributed--> 
-                     <div class="container">
+                     <div class="container form">
 						 
 				<div class="row">
                        <div class="col-46 full">

@@ -246,12 +246,12 @@ function getByPath(obj, path) {
 }
 
 function renderPinnedSkills(container) {
-  container.innerHTML = "";
+  container.empty();
 
   SKILLS
     .filter(s => getByPath(char, `Pinned.${s.key}`))
     .forEach(skill => {
-      container.insertAdjacentHTML("beforeend", `
+      container.append `
         <div class="row">
           <div class="col-22 r">${skill.label}</div>
           <div class="col-4 c r">
@@ -262,10 +262,10 @@ function renderPinnedSkills(container) {
     });
 }
 function renderSkillSheet(container) {
-  container.innerHTML = "";
+  container.empty();
 
   SKILLS.forEach(skill => {
-    container.insertAdjacentHTML("beforeend", `
+    container.append( `
       <div class="row">
         <div class="col-22 r">${skill.label} (${skill.stat.toUpperCase()})</div>
         <div class="col-4 c r"><span data-attrib="${skill.stat}"></span></div>
@@ -281,7 +281,7 @@ function renderSkillSheet(container) {
     `);
   });
 	 (char.customSkills || []).forEach(skill => {
-    container.insertAdjacentHTML("beforeend", `
+    container.append( `
       <div class="row">
         <div class="col-22 r">${skill.type}: ${skill.label} (${skill.stat.toUpperCase()})</div>
         <div class="col-4 c r"><span data-attrib="${skill.stat}"></span></div>
@@ -297,10 +297,10 @@ function renderSkillSheet(container) {
   });
 }
 function renderCustomSkills(container) {
-  container.innerHTML = "";
+  container.empty();
 
   (char.customSkills || []).forEach(skill => {
-    container.insertAdjacentHTML("beforeend", `
+    container.append( `
       <div class="row">
         <div class="col-22 r">${skill.type}: ${skill.label} (${skill.stat.toUpperCase()})</div>
         <div class="col-4 c r"><span data-attrib="${skill.stat}"></span></div>
@@ -316,10 +316,10 @@ function renderCustomSkills(container) {
   });
 }
 function renderSkillForm(container) {
-  container.innerHTML = "";
+  container.empty();
 
   SKILLS.forEach(skill => {
-    container.insertAdjacentHTML("beforeend", `
+    container.append(`
       <div class="row">
         <div class="col-22 r">${skill.label} (${skill.stat.toUpperCase()})</div>
         <div class="col-4 c r"><span data-attrib="${skill.stat}"></span></div>
@@ -337,7 +337,7 @@ function renderSkillForm(container) {
   
 	  //add Custom Skills last
  (char.customSkills || []).forEach(skill => {
-    container.insertAdjacentHTML("beforeend", `
+    container.append( `
       <div class="row">
         <div class="col-22 r">${skill.type}: ${skill.label} (${skill.stat.toUpperCase()})</div>
         <div class="col-4 c r"><span data-attrib="${skill.stat}"></span></div>

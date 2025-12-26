@@ -332,6 +332,9 @@ function renderSkillForm(container) {
         </div>
       </div>
     `);
+	  
+  });
+  
 	  //add Custom Skills last
  (char.customSkills || []).forEach(skill => {
     container.insertAdjacentHTML("beforeend", `

@@ -353,7 +353,7 @@ function renderSkillForm(container) {
   });
 }
 function render(){
-	renderSkillForm("#skillForm");	
-	renderSkillForm("#skillSheet");	
-	renderSkillForm(".pinnedSkills");	
+	renderSkillForm($("#skillForm"));	
+	renderSkillSheet($("#skillSheet"));	
+	renderPinnedSkills($(".pinnedSkills"));	
 }

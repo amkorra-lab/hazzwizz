@@ -251,7 +251,7 @@ function renderPinnedSkills(container) {
   SKILLS
     .filter(s => getByPath(char, `Pinned.${s.key}`))
     .forEach(skill => {
-      container.append `
+      container.append (`
         <div class="row">
           <div class="col-22 r">${skill.label}</div>
           <div class="col-4 c r">

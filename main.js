@@ -3,6 +3,7 @@
          $(function () {
           renderCharacterSelect();
           loadActiveCharacter();
+			 render();
          });
             const STORAGE_KEY = "rpg-characters";
          
@@ -12,7 +13,10 @@
             store = {
               activeId: "char-1",
               characters: {
-                "char-1": { name: "New Hero", level: 1, class: "", isDead: false, Rank: {}, Modifyer: {},  Bonus: {} }
+                "char-1": { name: "New Hero", level: 1, class: "", isDead: false, Rank: {}, Modifyer: {},  Bonus: {}, customSkills:{0:{ id:0, label:"", stat:"int/wis","type":"Lore/Profession"},
+																																	1:{ id:1, label:"", stat:"int/wis","type":"Lore/Profession"},
+																																	2:{ id:2, label:"", stat:"int/wis","type":"Lore/Profession"},
+																																	3:{ id:3, label:"", stat:"int/wis","type":"Lore/Profession"}} }
               }
             };
             localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
@@ -84,7 +88,7 @@
           );
          
  		 
-		computeDerivedStats(char);
+		  computeDerivedStats(char);
           renderCharacterSelect(); // updates name if renamed
          });
          
@@ -241,5 +245,112 @@ function getByPath(obj, path) {
   }, obj);
 }
 
+function renderPinnedSkills(container) {
+  container.innerHTML = "";
 
-		  	
+  SKILLS
+    .filter(s => getByPath(char, `Pinned.${s.key}`))
+    .forEach(skill => {
+      container.insertAdjacentHTML("beforeend", `
+        <div class="row">
+          <div class="col-22 r">${skill.label}</div>
+          <div class="col-4 c r">
+            <span data-attrib="Mod.${skill.key}"></span>
+          </div>
+        </div>
+      `);
+    });
+}
+function renderSkillSheet(container) {
+  container.innerHTML = "";
+
+  SKILLS.forEach(skill => {
+    container.insertAdjacentHTML("beforeend", `
+      <div class="row">
+        <div class="col-22 r">${skill.label} (${skill.stat.toUpperCase()})</div>
+        <div class="col-4 c r"><span data-attrib="${skill.stat}"></span></div>
+        <div class="col-4 c r"><span data-attrib="Rank.${skill.key}"></span></div>
+        <div class="col-4 c r"><span data-attrib="Bonus.${skill.key}"></span></div>
+        <div class="col-4 c r">
+          <span
+            data-attrib="Mod.${skill.key}"
+            data-formula="${skill.stat} + Rank.${skill.key}">
+          </span>
+        </div>
+      </div>
+    `);
+  });
+	 (char.customSkills || []).forEach(skill => {
+    container.insertAdjacentHTML("beforeend", `
+      <div class="row">
+        <div class="col-22 r">${skill.type}: ${skill.label} (${skill.stat.toUpperCase()})</div>
+        <div class="col-4 c r"><span data-attrib="${skill.stat}"></span></div>
+        <div class="col-4 c r"><input type="number" data-attrib="Rank.${skill.id}"></div>
+        <div class="col-4 c r"><input type="number" data-attrib="Bonus.${skill.id}"></div>
+        <div class="col-4 c r">
+          <span data-attrib="Mod.${skill.id}"
+                data-formula="${skill.stat} + Rank.${skill.id} + Bonus.${skill.id}">
+          </span>
+        </div>
+      </div>
+    `);
+  });
+}
+function renderCustomSkills(container) {
+  container.innerHTML = "";
+
+  (char.customSkills || []).forEach(skill => {
+    container.insertAdjacentHTML("beforeend", `
+      <div class="row">
+        <div class="col-22 r">${skill.type}: ${skill.label} (${skill.stat.toUpperCase()})</div>
+        <div class="col-4 c r"><span data-attrib="${skill.stat}"></span></div>
+        <div class="col-4 c r"><input type="number" data-attrib="Rank.${skill.id}"></div>
+        <div class="col-4 c r"><input type="number" data-attrib="Bonus.${skill.id}"></div>
+        <div class="col-4 c r">
+          <span data-attrib="Mod.${skill.id}"
+                data-formula="${skill.stat} + Rank.${skill.id} + Bonus.${skill.id}">
+          </span>
+        </div>
+      </div>
+    `);
+  });
+}
+function renderSkillForm(container) {
+  container.innerHTML = "";
+
+  SKILLS.forEach(skill => {
+    container.insertAdjacentHTML("beforeend", `
+      <div class="row">
+        <div class="col-22 r">${skill.label} (${skill.stat.toUpperCase()})</div>
+        <div class="col-4 c r"><span data-attrib="${skill.stat}"></span></div>
+        <div class="col-4 c r"><input type="number" data-attrib="Rank.${skill.key}"></div>
+        <div class="col-4 c r"><input type="number" data-attrib="Bonus.${skill.key}"></div>
+        <div class="col-4 c r"><span data-attrib="Mod.${skill.key}" data-formula="${skill.stat} + Rank.${skill.key}"></span>
+        </div>
+        <div class="col-8 c r">
+          <input type="checkbox" data-attrib="Pinned.${skill.key}">
+        </div>
+      </div>
+    `);
+	  //add Custom Skills last
+ (char.customSkills || []).forEach(skill => {
+    container.insertAdjacentHTML("beforeend", `
+      <div class="row">
+        <div class="col-22 r">${skill.type}: ${skill.label} (${skill.stat.toUpperCase()})</div>
+        <div class="col-4 c r"><span data-attrib="${skill.stat}"></span></div>
+        <div class="col-4 c r"><input type="number" data-attrib="Rank.${skill.id}"></div>
+        <div class="col-4 c r"><input type="number" data-attrib="Bonus.${skill.id}"></div>
+        <div class="col-4 c r">
+          <span data-attrib="Mod.${skill.id}"
+                data-formula="${skill.stat} + Rank.${skill.id}">
+          </span>
+        </div>
+      </div>
+    `);
+  });
+}
+function render(){
+	renderSkillForm("#skillForm");	
+	renderSkillForm("#skillSheet");	
+	renderSkillForm(".pinnedSkills");	
+}

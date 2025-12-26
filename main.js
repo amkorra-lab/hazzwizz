@@ -57,7 +57,7 @@ function createEmptyCharacter() {
 }
 
 /********************************
- * CHARACTER SELECTION
+ * CHARACTER SELECTION + EDIT FORM
  ********************************/
 function renderCharacterSelect() {
   const store = getStore();
@@ -79,6 +79,8 @@ $('#characterSelect').on('change', function () {
   loadActiveCharacter();
   render();
 });
+$('#editBtn').on('click', function () { $('#editOverlay').fadeIn(150); }); 
+$('#closeBtn').on('click', function () { $('#editOverlay').fadeOut(150); });
 
 /********************************
  * LOAD ACTIVE CHARACTER
